@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { Card, Loader, FormField } from "../components";
 
+const BASE_URL = "https://image-generator-lime.vercel.app";
+
 function RenderCards({ data, title }) {
   if (data && data.length !== 0) {
     return data.map((post) => {
@@ -23,7 +25,7 @@ export default function Home() {
     const fetchPosts = async () => {
       setLoading(true);
       try {
-        const response = await fetch("http://localhost:3000/api/v1/post", {
+        const response = await fetch(BASE_URL + "/api/v1/post", {
           methos: "GET",
           headers: {
             "Content-Type": "application/json",
