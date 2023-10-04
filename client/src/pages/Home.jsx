@@ -9,6 +9,7 @@ function RenderCards({ data, title }) {
       return <Card key={post._id} {...post} />;
     });
   }
+
   return (
     <h2 className="mt-5 font-bold text-xl-uppercase text-[#6449ff]">{title}</h2>
   );
@@ -85,7 +86,9 @@ export default function Home() {
       </div>
       <div className="mt-10">
         {loading ? (
-          <div className="flex justify-center items-center"></div>
+          <div className="flex justify-center items-center">
+            <Loader />
+          </div>
         ) : (
           <>
             {searchText && (

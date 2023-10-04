@@ -1,14 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { download } from "../assets";
 import { downloadImage } from "../utils";
 
 export default function Card({ _id, photo, prompt, name }) {
+  const [loading, setLoading] = useState(true);
+
   return (
-    <div className="rounded-xl group relative shadow-card hover:shadow-cardhover card">
+    <div
+      className={`rounded-xl group relative shadow-card hover:shadow-cardhover card ${
+        loading ? "animate-pulse bg-gray-400" : ""
+      }`}
+    >
       <img
+        hidden={loading}
         src={photo}
         alt={prompt}
         className="w-full h-auto object-cover rounded-xl"
+        onLoad={() => setLoading(false)}
       />
       <div className="group-hover:flex flex-col max-h-[94.5%] hidden absolute bottom-0 left-0 right-0 bg-[#10131f] m-2 p-4 rounded-md text-white">
         <p className=" text-sm overflow-y-auto">{prompt}</p>
