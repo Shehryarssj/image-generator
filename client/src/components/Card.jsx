@@ -7,7 +7,7 @@ export default function Card({ _id, photo, prompt, name }) {
 
   return (
     <div
-      className={`rounded-xl group relative shadow-card hover:shadow-cardhover card ${
+      className={`min-h-[100px] min-w-[100px] rounded-xl group relative shadow-card hover:shadow-cardhover card ${
         loading ? "animate-pulse bg-gray-400" : ""
       }`}
     >
